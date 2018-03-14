@@ -1,2 +1,2 @@
 # JavaScript
-JavaScript练习
+Some JavaScript test
