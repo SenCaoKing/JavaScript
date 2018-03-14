@@ -1,2 +1,2 @@
 # JavaScript
-Some JavaScript test
+Some JavaScript test for a long time
