@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>JavaScript Test</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+	/**
+	 * @author  Sen
+	 */
+	/* 数据类型 */
+	// Number [整数和浮点数]
+	// 字符串
+	// 布尔值[&&-与运算、||-或运算、!-非运算]
+	// 比较运算符[由于JavaScript的设计缺陷，不要使用 == ，始终坚持使用 === 比较]
+	// 数组
+	// 对象
+	// strict模式
+	'use strict';
+
+	/* 字符串 */
+	// 多行字符串
+	/*
+	console.log(`这是一个
+	多行
+	字符串`
+	);
+	 */
+	
+	// 模板字符串
+	/*
+	var name = '小明';
+	var age = 20;
+	var message = `你好，${name},你今年${age}岁了!`; // 此处是反引号
+	alert(message);
+	 */
+	
+	// 操作字符串
+	// toUpperCase() - 把一个字符串全部变为大写
+	/*
+	var s = 'Hello';
+	var lower = s.toUpperCase();
+	console.log(lower); //HELLO
+	 */
+	
+	// toLowerCase() - 把一个字符串全部变为小写
+	/*
+	var s = 'Hello';
+	var lower = s.toLowerCase();
+	console.log(lower); //hello
+	*/
+
+	// indexOf() - 会搜索指定字符串出现的位置
+	/*
+	var s = 'hello, world';
+	console.log(s.indexOf('world')); // 7
+	console.log(s.indexOf('World')); // -1[没有找到指定的子串，返回-1]
+	 */
+	
+	// substring() - 返回指定索引区间的子串
+	/*
+	var s = 'hello, world';
+	console.log(s.substring(0, 5)); // hello
+	console.log(s.substring(7)); // world
+	 */
+
+	/* 数组 */
+	// indexOf() - 搜索一个指定的元素的位置
+	/*
+	var arr = [10, 20, '30', 'xyz'];
+	console.log(arr.indexOf(10)); // 0
+	console.log(arr.indexOf(20)); // 1
+	console.log(arr.indexOf(30)); // -1[元素没有找到，返回-1]
+	console.log(arr.indexOf('30'));// 2
+	 */
+	
+	// slice() - 截取array的部分元素，返回一个新的array
+	/*
+	var arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+	console.log(arr.slice(0, 3)); // ["A", "B", "C"]
+	console.log(arr.slice(3)); // ["D", "E", "F", "G"]
+	 */
+	// 如果不给slice()传递任何参数，它就会从头到尾截取所有元素。利用这一点，我们可以很容易地复制一个Array
+	/*
+	var arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+	var aCopy = arr.slice();
+	console.log(aCopy); // ["A", "B", "C", "D", "E", "F", "G"]
+	aCopy === arr // false
+	 */
+	
+	// push() - 向array的末尾添加若干元素
+	// pop() - 把array的最后一个元素删除掉
+	/*
+	var arr = [1, 2];
+	var arr_p = arr.push('A', 'B');
+	console.log(arr_p); // 4[返回array新的长度: 4]
+	console.log(arr); // [1, 2, "A", "B"]
+	var arr_po = arr.pop();
+	console.log(arr_po); // 'B'
+	console.log(arr); // [1, 2, "A"]
+	arr.pop(); arr.pop(); arr.pop(); // 连续pop 3次
+	console.log(arr); // []
+	console.log(arr.pop()); // undefined[空数组继续pop不会报错，而是返回undefined]
+	console.log(arr); // []
+	 */
+	
+	// unshift() - 向array的头部添加若干元素
+	// shift() - 把array的第一个元素删掉
+	/*
+	var arr = [1, 2];
+	var arr_u = arr.unshift('A', 'B');
+	console.log(arr_u); // 4[返回array新的长度: 4]
+	console.log(arr); // ["A", "B", 1, 2]
+	var arr_s = arr.shift();
+	console.log(arr_s); // 'A'
+	console.log(arr); // ["B", 1, 2]
+	arr.shift(); arr.shift(); arr.shift();
+	console.log(arr); // []
+	arr.shift();
+	console.log(arr.shift()); // undefined[空数组继续shift不会报错，而是返回undefined]
+	console.log(arr); // []
+	 */
+	
+	// sort() - 对当前array进行排序，它会直接修改当前Array的元素位置，直接调用时，按照默认顺序排序
+	/*
+	var arr = ['B', 'C', 'A'];
+	arr.sort();
+	console.log(arr); // ["A", "B", "C"]
+	 */
+	
+	// reverse() - 把整个array的元素给掉个个(反转)
+	/*
+	var arr = ['one', 'two', 'three'];
+	arr.reverse();
+	console.log(arr); // ["three", "two", "one"]
+	 */
+
+	// splice() - 修改array的"万能方法，它可以从指定的索引开始删除若干元素，然后再从该位置添加若干元素
+	/*
+	// 从索引2开始删除3个元素，然后再添加两个元素
+	var arr = ['Microsoft', 'Apple', 'Yahoo', 'AOL', 'Excite', 'Oracle'];
+	var arr_s = arr.splice(2, 3, 'Google', 'Facebook');
+	console.log(arr_s); // ["Yahoo", "AOL", "Excite"]
+	console.log(arr); // ["Microsoft", "Apple", "Google", "Facebook", "Oracle"]
+	// 只删除，不添加
+	var arr_s1 = arr.splice(2, 2);
+	console.log(arr_s1); // ["Google", "Facebook"]
+	console.log(arr); // ["Microsoft", "Apple", "Oracle"]
+	// 只添加，不删除
+	var arr_s2 = arr.splice(2, 0, 'Google', 'Facebook');
+	console.log(arr_s2); // [][没有删除任何元素，返回[]]
+	console.log(arr); // ["Microsoft", "Apple", "Google", "Facebook", "Oracle"]
+	 */
+	
+	// concat() - 把当前的array和另一个array连接起来，并返回一个新的array
+	/*
+	var arr = ['A', 'B', 'C'];
+	var added = arr.concat([1, 2, 3]);
+	console.log(added); // ["A", "B", "C", 1, 2, 3]
+	console.log(arr); // ["A", "B", "C"]
+	*/
+	// 实际上，concat()方法可以接收任意个元素和Array，并且自动把Array拆开，然后全部添加到新的Array里
+	/*
+	var arr = ['A', 'B', 'C'];
+	var arr_c = arr.concat(1, 2, [3, 4]);
+	console.log(arr_c); // ["A", "B", "C", 1, 2, 3, 4]
+	 */
+	
+	// join() - 把当前array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串
+	/*
+	var arr = ['A', 'B', 'C', 1, 2, 3];
+	console.log(arr.join('-')); // 'A-B-C-1-2-3'
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+</script>
+</html>
