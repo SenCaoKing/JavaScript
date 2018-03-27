@@ -175,13 +175,77 @@
 	console.log(arr.join('-')); // 'A-B-C-1-2-3'
 	*/
 	
+
+
+
+	/* 此处数组结束，循环判断部分仍在整理中 */
 	
+
+
+
+	/* 函数 */
+	// 定义函数
+	/*
+	//简单的取绝对值函数
+	// ①
+		function abs(x) {
+			if (x >= 0) {
+				return x;
+			} else {
+				return -x;
+			}
+		}
+		// ②[匿名函数]
+		var abs = function (x) {
+			if (x >= 0) {
+				return x;
+			} else {
+				return -x;
+			}
+		};
+		// 调用函数
+		console.log(abs(10)); // 10
+		console.log(abs(-9)); // 9
+		console.log(abs(-6, 'haha', 'hehe', null)); // 6
+		console.log(abs()); // NaN
+
+	// 检查参数
+		function abs(x) {
+			if (typeof x !== 'number') {
+				throw "Not a number";
+			}
+			if (x >= 0) {
+				return x;
+			} else {
+				return -x;
+			}
+		}
+	 */
 	
+	// arguments - 只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数
+	/*
+	function foo(x) {
+		console.log('x = ' + x); // x = 10
+		for (var i=0; i<arguments.length; i++) {
+			console.log('arg ' + i + ' = ' + arguments[i]); //arg 0 = 10 arg 1 = 20 arg 2 = 30
+
+		}
+	}
+	foo(10, 20, 30);
+
+	 */
 	
-	
-	
-	
-	
+	function abs() {
+		if (arguments.length === 0) {
+			return 0;
+		}
+		var x = arguments[0];
+		return x >= 0 ? x : -x;
+	}
+	console.log(abs());
+	console.log(abs(10));
+	console.log(abs(-9));
+
 	
 	
 	
